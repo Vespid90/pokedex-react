@@ -6,7 +6,7 @@ import { getPokemons } from '../services/api';
 import '../styles/components/PokemonList.css';
 
 const PokemonList = () => {
-    const { pokemons, setPokemons } = usePokemon();
+    const { pokemons, setPokemons, searchQuery } = usePokemon();
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
@@ -21,15 +21,15 @@ const PokemonList = () => {
 
     useEffect(() => {
         fetchPokemons();
-    }, [currentPage]); // Recharge quand la page change
+    }, [currentPage]);
 
     const fetchPokemons = async () => {
         try {
             setIsLoading(true);
             const offset = (currentPage - 1) * ITEMS_PER_PAGE;
             const newPokemons = await getPokemons(ITEMS_PER_PAGE, offset);
-            setPokemons(newPokemons); // Remplace les Pokémon au lieu de les ajouter
-            window.scrollTo(0, 0); // Retourne en haut de la page
+            setPokemons(newPokemons);
+            window.scrollTo(0, 0);
         } catch (err) {
             setError('Error loading Pokémon');
             console.error('Error:', err);
@@ -48,11 +48,16 @@ const PokemonList = () => {
 
     const getFilteredPokemons = () => {
         return pokemons.filter(pokemon => {
+            // Filtre par recherche
+            const searchMatch = searchQuery
+                ? pokemon.name.toLowerCase().includes(searchQuery.toLowerCase())
+                : true;
 
+            // Filtre par type
             const typeMatch = filters.type === 'all' ||
                 pokemon.types.some(t => t.type.name === filters.type);
 
-
+            // Filtre par génération
             let genMatch = true;
             if (filters.generation !== 'all') {
                 const id = pokemon.id;
@@ -71,7 +76,7 @@ const PokemonList = () => {
                 genMatch = id >= range[0] && id <= range[1];
             }
 
-            return typeMatch && genMatch;
+            return searchMatch && typeMatch && genMatch;
         });
     };
 
@@ -166,7 +171,9 @@ const PokemonList = () => {
 
     return (
         <div className="pokemon-list-container">
-            <Filter onFilterChange={handleFilterChange} />
+            <div className="search-and-filters">
+                <Filter onFilterChange={handleFilterChange} />
+            </div>
 
             {!isLoading && filteredPokemons.length > 0 && (
                 <div className="pagination top-pagination">

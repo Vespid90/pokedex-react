@@ -10,7 +10,6 @@ const Home = () => {
 
     return (
         <div className="home-container">
-            <h1>Pokédex</h1>
             <PokemonList />
         </div>
     );
