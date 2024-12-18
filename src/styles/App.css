@@ -1,8 +1,31 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.content-container {
+    margin-left: 21%;
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    margin-top: 4.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.favorites {
+    flex: 1;
+    background-color: #ffefef;
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.home {
+    flex: 4;
+    background-color: #e0f7fa;
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .logo {
