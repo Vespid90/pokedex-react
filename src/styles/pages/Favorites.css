@@ -1,12 +1,26 @@
-.favorites {
-    position: fixed; /* Rendre Favorites fixe */
-    top: 4.5rem; /* Aligner sous la NavBar */
-    left: 0; /* Fixe le composant sur le côté gauche */
-    width: 20%; /* Occupe 20% de la largeur de l'écran */
-    height: calc(100vh - 4.5rem); /* Occupe toute la hauteur de l'écran sous la NavBar */
-    background-color: #f8f9fa; /* Couleur de fond */
-    border-right: 1px solid #ddd; /* Bordure séparant le contenu */
+.favorites-container {
+    padding: 2rem;
+}
+
+.favorites-container h1 {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.pokemon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
     padding: 1rem;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    overflow-y: auto; /* Permet de défiler si le contenu dépasse */
+}
+
+@media (max-width: 768px) {
+    .favorites-container {
+        padding: 1rem;
+    }
+
+    .pokemon-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+    }
 }

@@ -1,10 +1,31 @@
+:root {
+  --primary-color: #ff0000;
+  --secondary-color: #cc0000;
+  --background-color: #f4f4f4;
+  --text-color: #333333;
+
+  /* Types de Pokémon */
+  --type-normal: #A8A878;
+  --type-fire: #F08030;
+  --type-water: #6890F0;
+  --type-grass: #78C850;
+  /* ... autres types ... */
+}
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: #4bd5d5;
+  font-family: 'Arial', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}

@@ -1,12 +1,17 @@
-import React from "react";
-import PokemonList from "../components/PokemonList.jsx";
-import "../styles/pages/Home.css";
+import { useEffect } from 'react';
+import PokemonList from '../components/PokemonList';
+import { usePokemon } from '../hooks/usePokemon';
 
 const Home = () => {
+    const { pokemons } = usePokemon();
+
+    useEffect(() => {
+    }, [pokemons]);
+
     return (
-        <div className="home">
-            <h3>Page Home</h3>
-            <p>Bienvenue blabla bla bla</p>
+        <div className="home-container">
+            <h1>Pokédex</h1>
+
             <PokemonList />
         </div>
     );
