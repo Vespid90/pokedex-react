@@ -49,7 +49,7 @@ const PokemonCard = ({ pokemon, isFavorite, onFavoriteToggle }) => {
                     {pokemon.types.map(({ type }) => (
                         <span
                             key={type.name}
-                            className={`type-badge ${type.name}`}
+                            className={`type-badge type-${type.name}`}
                         >
               {type.name}
             </span>
