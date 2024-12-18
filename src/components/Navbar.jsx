@@ -50,9 +50,11 @@ const Navbar = () => {
                 <div className="navbar-search">
                     <SearchBar />
                 </div>
+
             </div>
         </nav>
     );
 };
+
 
 export default Navbar;

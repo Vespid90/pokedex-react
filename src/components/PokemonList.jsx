@@ -21,15 +21,15 @@ const PokemonList = () => {
 
     useEffect(() => {
         fetchPokemons();
-    }, [currentPage]); // Recharge quand la page change
+    }, [currentPage]);
 
     const fetchPokemons = async () => {
         try {
             setIsLoading(true);
             const offset = (currentPage - 1) * ITEMS_PER_PAGE;
             const newPokemons = await getPokemons(ITEMS_PER_PAGE, offset);
-            setPokemons(newPokemons); // Remplace les Pokémon au lieu de les ajouter
-            window.scrollTo(0, 0); // Retourne en haut de la page
+            setPokemons(newPokemons);
+            window.scrollTo(0, 0); 
         } catch (err) {
             setError('Error loading Pokémon');
             console.error('Error:', err);
@@ -201,8 +201,10 @@ const PokemonList = () => {
                     {renderPagination()}
                 </div>
             )}
+
         </div>
     );
 };
 
 export default PokemonList;
+

@@ -94,9 +94,11 @@ const PokemonCard = ({ pokemon, isFavorite, onFavoriteToggle }) => {
                     </Link>
                 </div>
             </div>
+
         </div>
     );
 };
+
 
 
 PokemonCard.propTypes = {
@@ -131,5 +133,6 @@ PokemonCard.defaultProps = {
     isFavorite: false,
     onFavoriteToggle: () => {}
 };
+
 
 export default PokemonCard;
