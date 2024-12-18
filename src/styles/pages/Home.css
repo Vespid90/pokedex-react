@@ -1,37 +1,41 @@
 .home-container {
-    display: flex; /* Affichage en colonnes */
-    flex-direction: row; /* Assure une disposition horizontale */
-    height: 100vh; /* Hauteur pleine page */
-    width: 100%; /* Largeur totale */
-    overflow: hidden; /* Évite les débordements */
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
 }
 
-/* Colonne des favoris */
 .favorites-column {
-    width: 25%; /* Largeur fixe pour la colonne de gauche */
-    background-color: #f8f9fa; /* Couleur de fond pour démarquer les favoris */
-    border-right: 1px solid #ddd; /* Ligne de séparation */
-    padding: 1rem; /* Espacement interne */
-    overflow-y: auto; /* Permet un défilement vertical */
+    position: fixed;
+    top: calc(var(--navbar-height, 64px));
+    left: 0;
+    height: calc(100vh - var(--navbar-height, 64px));
+    width: 25%;
+    background-color: #f8f9fa;
+    border-right: 1px solid #ddd;
+    padding: 1rem;
+    overflow-y: auto;
+    z-index: 100;
 }
 
-/* Colonne principale (liste des Pokémon) */
 .pokemon-list-column {
-    width: 75%; /* Largeur pour la colonne de droite */
-    padding: 1rem; /* Espacement interne */
-    overflow-y: auto; /* Permet un défilement vertical */
+    margin-left: 25%;
+    width: 75%;
+    padding: 1rem;
+    overflow-y: auto;
+    height: calc(100vh - var(--navbar-height, 64px));
 }
 
-/* Ajustement pour les petits écrans */
 @media (max-width: 768px) {
     .home-container {
-        flex-direction: column; /* Passe en colonnes empilées */
+        flex-direction: column;
     }
 
     .favorites-column,
     .pokemon-list-column {
-        width: 100%; /* Les colonnes prennent toute la largeur */
-        border-right: none; /* Supprime la bordure verticale */
-        border-bottom: 1px solid #ddd; /* Ligne de séparation horizontale */
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
     }
 }
