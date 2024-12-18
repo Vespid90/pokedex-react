@@ -1,19 +1,23 @@
-import React from 'react';
-import './styles/App.css';
-import NavBar from './components/Navbar.jsx';
-import Favorites from './pages/Favorites.jsx';
-import Home from './pages/Home.jsx';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Navbar from './components/Navbar'
+import Home from './pages/Home'
+import Favorites from './pages/Favorites'
+import PokemonDetail from './components/PokemonDetail'
+import './styles/App.css'
 
 function App() {
     return (
-        <div>
-            <NavBar />
-            <div className="content-container">
-                <Favorites />
-                <Home />
+        <Router>
+            <div className="app">
+                <Navbar />
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/favorites" element={<Favorites />} />
+                    <Route path="/pokemon/:id" element={<PokemonDetail />} />
+                </Routes>
             </div>
-        </div>
-    );
+        </Router>
+    )
 }
 
-export default App;
+export default App

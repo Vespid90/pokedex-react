@@ -1,48 +1,115 @@
 .navbar {
-    position: fixed;
+    background-color: var(--primary-color);
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
     top: 0;
-    left: 0;
-    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background-color: #f8f9fa;
-    border-bottom: 1px solid #ddd;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
-.navbar-logo .logo {
-    height: 2.5rem;
-    width: auto;
-}
-
-.navbar-search {
+.navbar-brand {
     display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar-logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 0.5rem;
+}
+
+.navbar-menu {
+    display: flex;
+    gap: 2rem;
     align-items: center;
 }
 
-.search-bar {
-    padding: 0.6rem;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px 0 0 8px;
-    outline: none;
+.navbar-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.navbar-link:hover {
+    opacity: 0.8;
+}
+
+.navbar-link.active {
+    border-bottom: 2px solid white;
+}
+
+.navbar-search {
     width: 300px;
 }
 
-.search-button {
-    padding: 0.6rem;
-    font-size: 1rem;
-    background-color: #007BFF;
-    color: white;
-    border: 1px solid #007BFF;
-    border-left: none;
-    border-radius: 0 8px 8px 0;
+/* Hamburger menu styles */
+.navbar-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
     cursor: pointer;
+    padding: 4px;
 }
 
-.search-button:hover {
-    background-color: #0056b3;
+.hamburger-line {
+    width: 24px;
+    height: 2px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .navbar-toggle {
+        display: flex;
+    }
+
+    .navbar-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--primary-color);
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .navbar-menu.is-open {
+        display: flex;
+    }
+
+    .navbar-search {
+        display: none;
+    }
+}
+
+/* Animation pour le menu hamburger */
+.navbar-toggle:hover .hamburger-line {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Style pour le focus */
+.navbar-link:focus,
+.navbar-toggle:focus {
+    outline: 2px solid white;
+    outline-offset: 2px;
 }
