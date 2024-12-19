@@ -6,7 +6,16 @@ import { getPokemons } from '../services/api';
 import '../styles/components/PokemonList.css';
 
 const PokemonList = () => {
-    const { pokemons, setPokemons, searchQuery } = usePokemon();
+    const {
+        pokemons,
+        setPokemons,
+        searchQuery,
+        allPokemons,
+        favorites,
+        addFavorite,
+        removeFavorite
+    } = usePokemon();
+
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
@@ -17,11 +26,12 @@ const PokemonList = () => {
 
     const ITEMS_PER_PAGE = 40;
     const TOTAL_POKEMON = 1010;
-    const TOTAL_PAGES = Math.ceil(TOTAL_POKEMON / ITEMS_PER_PAGE);
 
     useEffect(() => {
-        fetchPokemons();
-    }, [currentPage]);
+        if (!searchQuery) {
+            fetchPokemons();
+        }
+    }, [currentPage, searchQuery]);
 
     const fetchPokemons = async () => {
         try {
@@ -46,10 +56,21 @@ const PokemonList = () => {
         setCurrentPage(1);
     };
 
-    //filtre pokemon
-    const getFilteredPokemons = () => {
-        return pokemons.filter(pokemon => {
+    //gestion des favoris
+    const handleFavoriteToggle = (pokemon) => {
+        const isFavorite = favorites.some(fav => fav.id === pokemon.id);
+        if (isFavorite) {
+            removeFavorite(pokemon.id);
+        } else {
+            addFavorite(pokemon);
+        }
+    };
 
+    const getFilteredPokemons = () => {
+        const pokemonsToFilter = searchQuery ? allPokemons : pokemons;
+        if (!pokemonsToFilter) return [];
+
+        return pokemonsToFilter.filter(pokemon => {
             const searchMatch = searchQuery
                 ? pokemon.name.toLowerCase().includes(searchQuery.toLowerCase())
                 : true;
@@ -79,11 +100,8 @@ const PokemonList = () => {
         });
     };
 
-    const handlePageChange = (newPage) => {
-        if (newPage >= 1 && newPage <= TOTAL_PAGES) {
-            setCurrentPage(newPage);
-        }
-    };
+    const filteredPokemons = getFilteredPokemons();
+    const TOTAL_PAGES = Math.ceil((searchQuery ? filteredPokemons.length : TOTAL_POKEMON) / ITEMS_PER_PAGE);
 
     const renderPagination = () => {
         const pages = [];
@@ -162,7 +180,11 @@ const PokemonList = () => {
         return pages;
     };
 
-    const filteredPokemons = getFilteredPokemons();
+    const handlePageChange = (newPage) => {
+        if (newPage >= 1 && newPage <= TOTAL_PAGES) {
+            setCurrentPage(newPage);
+        }
+    };
 
     if (error) {
         return <div className="error-message">{error}</div>;
@@ -174,7 +196,7 @@ const PokemonList = () => {
                 <Filter onFilterChange={handleFilterChange} />
             </div>
 
-            {!isLoading && filteredPokemons.length > 0 && (
+            {!isLoading && !searchQuery && filteredPokemons.length > 0 && (
                 <div className="pagination top-pagination">
                     {renderPagination()}
                 </div>
@@ -185,6 +207,8 @@ const PokemonList = () => {
                     <PokemonCard
                         key={pokemon.id}
                         pokemon={pokemon}
+                        isFavorite={favorites.some(fav => fav.id === pokemon.id)}
+                        onFavoriteToggle={handleFavoriteToggle}
                     />
                 ))}
             </div>
@@ -202,7 +226,7 @@ const PokemonList = () => {
                 </div>
             )}
 
-            {!isLoading && filteredPokemons.length > 0 && (
+            {!isLoading && !searchQuery && filteredPokemons.length > 0 && (
                 <div className="pagination bottom-pagination">
                     {renderPagination()}
                 </div>
