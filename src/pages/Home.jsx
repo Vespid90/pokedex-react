@@ -1,11 +1,12 @@
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 import PokemonList from '../components/PokemonList';
 import Favorites from '../pages/Favorites';
 import {usePokemon} from '../hooks/usePokemon';
 import '../styles/pages/Home.css';
 
+
 const Home = () => {
-    const {pokemons} = usePokemon();
+    const { pokemons } = usePokemon();
 
     useEffect(() => {
     }, [pokemons]);

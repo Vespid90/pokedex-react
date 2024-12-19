@@ -84,7 +84,7 @@ const PokemonCard = ({ pokemon, isFavorite, onFavoriteToggle }) => {
                         className={`favorite-button ${isFavorite ? 'active' : ''}`}
                         onClick={() => onFavoriteToggle(pokemon)}
                     >
-                        {isFavorite ? '❤️' : '🤍'}
+                        {isFavorite ? '❤️' : '💛'}
                     </button>
                     <Link
                         to={`/pokemon/${pokemon.id}`}
@@ -94,11 +94,9 @@ const PokemonCard = ({ pokemon, isFavorite, onFavoriteToggle }) => {
                     </Link>
                 </div>
             </div>
-
         </div>
     );
 };
-
 
 
 PokemonCard.propTypes = {
@@ -133,6 +131,5 @@ PokemonCard.defaultProps = {
     isFavorite: false,
     onFavoriteToggle: () => {}
 };
-
 
 export default PokemonCard;
