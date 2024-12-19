@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import SearchBar from './SearchBar';
 import { usePokemon } from '../hooks/usePokemon';
@@ -17,24 +17,30 @@ const Navbar = () => {
         }
     };
 
-    const handleHomeClick = () => {
+    const handleRefresh = () => {
         setSearchQuery('');
         navigate('/');
-        window.scrollTo(0, 0);
+        window.location.reload();
     };
 
     return (
         <nav className="navbar">
             <div className="navbar-container">
                 {/* Logo */}
-                <Link to="/" className="navbar-brand" onClick={handleHomeClick}>
+                <div
+                    className="navbar-brand"
+                    onClick={handleRefresh}
+                    style={{ cursor: 'pointer' }}
+                >
                     <img
                         src="/pokeball.png"
                         alt="Pokédex"
                         className="navbar-logo"
                     />
+
                     <span className="navbar-title">Pokédex</span>
                 </Link>
+
 
                 {/* Menu Hamburger pour mobile */}
                 <button
@@ -46,22 +52,21 @@ const Navbar = () => {
                     <span className="hamburger-line"></span>
                 </button>
 
-                {/* Navigation Links */}
-                <div className={`navbar-menu ${isMenuOpen ? 'is-open' : ''}`}>
-                    <Link
-                        to="/"
-                        className={`navbar-link ${location.pathname === '/' ? 'active' : ''}`}
-                        onClick={handleHomeClick}
-                    >
-                        Home
-                    </Link>
-                    {/*<Link*/}
-                    {/*    to="/favorites"*/}
-                    {/*    className={`navbar-link ${location.pathname === '/favorites' ? 'active' : ''}`}*/}
-                    {/*>*/}
-                    {/*    Favorites*/}
-                    {/*</Link>*/}
-                </div>
+                {/*/!* Navigation Links *!/*/}
+                {/*<div className={`navbar-menu ${isMenuOpen ? 'is-open' : ''}`}>*/}
+                {/*    <Link*/}
+                {/*        to="/"*/}
+                {/*        className={`navbar-link ${location.pathname === '/' ? 'active' : ''}`}*/}
+                {/*    >*/}
+                {/*        Home*/}
+                {/*    </Link>*/}
+                {/*    <Link*/}
+                {/*        to="/favorites"*/}
+                {/*        className={`navbar-link ${location.pathname === '/favorites' ? 'active' : ''}`}*/}
+                {/*    >*/}
+                {/*        Favorites*/}
+                {/*    </Link>*/}
+                {/*</div>*/}
 
                 {/* Search Bar */}
                 <div className="navbar-search">
