@@ -83,7 +83,7 @@ const PokemonDetail = () => {
                         className="shiny-toggle-button"
                         onClick={() => setShowShiny(!showShiny)}
                     >
-                        {showShiny ? 'Show Normal' : 'Show Shiny'} ✨
+                        {showShiny ? 'Shiny' : 'Normal'} ✨
                     </button>
                 </div>
 
@@ -140,7 +140,7 @@ const PokemonDetail = () => {
                         className={`favorite-button ${isFavorite ? 'active' : ''}`}
                         onClick={toggleFavorite}
                     >
-                        {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
+                        {isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris'}
                     </button>
                 </div>
             </div>

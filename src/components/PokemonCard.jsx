@@ -29,7 +29,7 @@ const PokemonCard = ({ pokemon, isFavorite, onFavoriteToggle }) => {
                 <button
                     className="shiny-toggle"
                     onClick={() => setShowShiny(!showShiny)}
-                    title={showShiny ? "Show normal" : "Show shiny"}
+                    title={showShiny ? "Normal" : "Shiny"}
                 >
                     ✨
                 </button>
@@ -90,7 +90,7 @@ const PokemonCard = ({ pokemon, isFavorite, onFavoriteToggle }) => {
                         to={`/pokemon/${pokemon.id}`}
                         className="details-button"
                     >
-                        View Details
+                        Voir les détails
                     </Link>
                 </div>
             </div>

@@ -23,4 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 
+# Fichiers annexes et tests
 test.jsx
+
