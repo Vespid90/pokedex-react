@@ -39,7 +39,7 @@ const Navbar = () => {
                     />
 
                     <span className="navbar-title">Pokédex</span>
-                </Link>
+                </div>
 
 
                 {/* Menu Hamburger pour mobile */}
