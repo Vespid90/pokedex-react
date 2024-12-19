@@ -2,9 +2,31 @@
     padding: 2rem;
 }
 
-.favorites-container h1 {
+.favorites-title {
+    font-size: 1.5rem;
     margin-bottom: 2rem;
     text-align: center;
+}
+
+.favorite-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+}
+
+.favorites-sprites {
+    display: flex;
+    align-self: flex-end;
+    width: 50px;
+    height: 50px;
+}
+
+ul {
+    list-style: none;
 }
 
 .pokemon-grid {

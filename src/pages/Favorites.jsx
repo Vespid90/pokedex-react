@@ -7,23 +7,29 @@ const Favorites = () => {
     const { favorites } = usePokemon();
 
     return (
-        <div className="favorites-container">
-            <h1>Mes Pokémon Favoris</h1>
-            {favorites.length === 0 ? (
-                <p>Vous n'avez pas encore de Pokémon favoris.</p>
-            ) : (
-                <div className="pokemon-grid">
-                    {favorites.map(pokemon => (
-                        <PokemonCard
-                            key={pokemon.id}
-                            pokemon={pokemon}
-                            isFavorite={true}
-                        />
+        <div>
+            <h2 className="favorites-title">Mes Pokémon favoris</h2>
+            {favorites.length > 0 ? (
+                <ul className="favorites-list">
+                    {favorites.map((pokemon) => (
+                        <li key={pokemon.id} className="favorite-item">
+
+                            <span>#{pokemon.id.toString().padStart(3, '0')} </span>
+                            <span> {pokemon.name}</span>
+                            <img
+                                src={pokemon.sprites.front_default}
+                                alt={pokemon.name}
+                                className="favorites-sprites"
+                            />
+                        </li>
                     ))}
-                </div>
+                </ul>
+            ) : (
+                <p>No favorites yet.</p>
             )}
         </div>
     );
 };
+
 
 export default Favorites;
