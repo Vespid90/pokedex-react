@@ -1,6 +1,7 @@
 .pokemon-card {
     position: relative;
     padding: 1rem;
+    width: 210px;
     background: white;
     border-radius: 16px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
