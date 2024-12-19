@@ -152,14 +152,24 @@
     padding: 1rem;
     border: none;
     border-radius: 0.5rem;
-    background-color: #ea0a0a;
+    background-color: #6d7ed6;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.favorite-button-mini {
+    padding: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #ffffff;
     color: white;
     cursor: pointer;
     transition: background-color 0.2s;
 }
 
 .favorite-button.active {
-    background-color: #ff6b81;
+    background-color: #ea0a0a;
 }
 
 .favorite-button:hover {

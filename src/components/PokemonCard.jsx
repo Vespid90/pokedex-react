@@ -57,31 +57,31 @@ const PokemonCard = ({ pokemon, isFavorite, onFavoriteToggle }) => {
                 </div>
 
                 {/* Stats de base */}
-                <div className="pokemon-card-stats">
-                    <div className="stat">
-                        <span>HP</span>
-                        <div className="stat-bar">
-                            <div
-                                className="stat-fill"
-                                style={{width: `${(pokemon.stats[0].base_stat / 255) * 100}%`}}
-                            />
-                        </div>
-                    </div>
-                    <div className="stat">
-                        <span>ATK</span>
-                        <div className="stat-bar">
-                            <div
-                                className="stat-fill"
-                                style={{width: `${(pokemon.stats[1].base_stat / 255) * 100}%`}}
-                            />
-                        </div>
-                    </div>
-                </div>
+                {/*<div className="pokemon-card-stats">*/}
+                {/*    <div className="stat">*/}
+                {/*        <span>HP</span>*/}
+                {/*        <div className="stat-bar">*/}
+                {/*            <div*/}
+                {/*                className="stat-fill"*/}
+                {/*                style={{width: `${(pokemon.stats[0].base_stat / 255) * 100}%`}}*/}
+                {/*            />*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*    <div className="stat">*/}
+                {/*        <span>ATK</span>*/}
+                {/*        <div className="stat-bar">*/}
+                {/*            <div*/}
+                {/*                className="stat-fill"*/}
+                {/*                style={{width: `${(pokemon.stats[1].base_stat / 255) * 100}%`}}*/}
+                {/*            />*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
 
                 {/* Actions */}
                 <div className="pokemon-card-actions">
                     <button
-                        className={`favorite-button ${isFavorite ? 'active' : ''}`}
+                        className={`favorite-button-mini ${isFavorite ? 'active' : ''}`}
                         onClick={() => onFavoriteToggle(pokemon)}
                     >
                         {isFavorite ? '❤️' : '💛'}
