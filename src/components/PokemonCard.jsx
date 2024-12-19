@@ -29,7 +29,7 @@ const PokemonCard = ({ pokemon, isFavorite, onFavoriteToggle }) => {
                 <button
                     className="shiny-toggle"
                     onClick={() => setShowShiny(!showShiny)}
-                    title={showShiny ? "Show normal" : "Show shiny"}
+                    title={showShiny ? "Normal" : "Shiny"}
                 >
                     ✨
                 </button>
@@ -57,31 +57,31 @@ const PokemonCard = ({ pokemon, isFavorite, onFavoriteToggle }) => {
                 </div>
 
                 {/* Stats de base */}
-                <div className="pokemon-card-stats">
-                    <div className="stat">
-                        <span>HP</span>
-                        <div className="stat-bar">
-                            <div
-                                className="stat-fill"
-                                style={{width: `${(pokemon.stats[0].base_stat / 255) * 100}%`}}
-                            />
-                        </div>
-                    </div>
-                    <div className="stat">
-                        <span>ATK</span>
-                        <div className="stat-bar">
-                            <div
-                                className="stat-fill"
-                                style={{width: `${(pokemon.stats[1].base_stat / 255) * 100}%`}}
-                            />
-                        </div>
-                    </div>
-                </div>
+                {/*<div className="pokemon-card-stats">*/}
+                {/*    <div className="stat">*/}
+                {/*        <span>HP</span>*/}
+                {/*        <div className="stat-bar">*/}
+                {/*            <div*/}
+                {/*                className="stat-fill"*/}
+                {/*                style={{width: `${(pokemon.stats[0].base_stat / 255) * 100}%`}}*/}
+                {/*            />*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*    <div className="stat">*/}
+                {/*        <span>ATK</span>*/}
+                {/*        <div className="stat-bar">*/}
+                {/*            <div*/}
+                {/*                className="stat-fill"*/}
+                {/*                style={{width: `${(pokemon.stats[1].base_stat / 255) * 100}%`}}*/}
+                {/*            />*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
 
                 {/* Actions */}
                 <div className="pokemon-card-actions">
                     <button
-                        className={`favorite-button ${isFavorite ? 'active' : ''}`}
+                        className={`favorite-button-mini ${isFavorite ? 'active' : ''}`}
                         onClick={() => onFavoriteToggle(pokemon)}
                     >
                         {isFavorite ? '❤️' : '💛'}
@@ -90,7 +90,7 @@ const PokemonCard = ({ pokemon, isFavorite, onFavoriteToggle }) => {
                         to={`/pokemon/${pokemon.id}`}
                         className="details-button"
                     >
-                        View Details
+                        Voir les détails
                     </Link>
                 </div>
             </div>

@@ -170,8 +170,8 @@
 
 .details-button {
     padding: 0.5rem 1rem;
-    background-color: var(--primary-color);
-    color: white;
+    background-color: rgba(0, 0, 0, 0.05);
+    color: rgba(156, 154, 154, 0.99);
     text-decoration: none;
     border-radius: 20px;
     font-size: 0.9rem;
@@ -179,7 +179,8 @@
 }
 
 .details-button:hover {
-    background-color: var(--secondary-color);
+    background-color: rgba(156, 154, 154, 0.99);
+    color: white;
 }
 
 /* Responsive design */
