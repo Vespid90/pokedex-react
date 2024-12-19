@@ -37,8 +37,10 @@ const Navbar = () => {
                         alt="Pokédex"
                         className="navbar-logo"
                     />
-                    <span>Pokédex</span>
-                </div>
+
+                    <span className="navbar-title">Pokédex</span>
+                </Link>
+
 
                 {/* Menu Hamburger pour mobile */}
                 <button
