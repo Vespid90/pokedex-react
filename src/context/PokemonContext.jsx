@@ -8,7 +8,7 @@ export function PokemonProvider({ children }) {
     const [favorites, setFavorites] = useState(
         JSON.parse(localStorage.getItem('favorites')) || []
     )
-    const [searchQuery, setSearchQuery] = useState('') // Ajout de l'état de recherche
+    const [searchQuery, setSearchQuery] = useState('')
 
     const addFavorite = (pokemon) => {
         const newFavorites = [...favorites, pokemon]
@@ -29,8 +29,8 @@ export function PokemonProvider({ children }) {
             favorites,
             addFavorite,
             removeFavorite,
-            searchQuery,    // Ajout de la valeur de recherche
-            setSearchQuery  // Ajout de la fonction pour mettre à jour la recherche
+            searchQuery,
+            setSearchQuery
         }}>
             {children}
         </PokemonContext.Provider>
