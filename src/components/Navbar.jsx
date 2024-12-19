@@ -1,72 +1,3 @@
-// import { Link, useLocation, useNavigate } from 'react-router-dom';
-// import { useState } from 'react';
-// import SearchBar from './SearchBar';
-// import { usePokemon } from '../hooks/usePokemon';
-// import '../styles/components/Navbar.css';
-//
-// const Navbar = () => {
-//     const location = useLocation();
-//     const navigate = useNavigate();
-//     const [isMenuOpen, setIsMenuOpen] = useState(false);
-//     const { setSearchQuery } = usePokemon(); // Ajout du contexte pour la recherche
-//
-//     const handleSearch = (query) => {
-//         setSearchQuery(query); // Met à jour la recherche dans le contexte
-//         if (location.pathname !== '/') {
-//             navigate('/'); // Redirige vers la page d'accueil si on n'y est pas
-//         }
-//     };
-//
-//     return (
-//         <nav className="navbar">
-//             <div className="navbar-container">
-//                 {/* Logo */}
-//                 <Link to="/" className="navbar-brand">
-//                     <img
-//                         src="/pokeball.svg"
-//                         alt="Pokédex"
-//                         className="navbar-logo"
-//                     />
-//                     <span>Pokédex</span>
-//                 </Link>
-//
-//                 {/* Menu Hamburger pour mobile */}
-//                 <button
-//                     className="navbar-toggle"
-//                     onClick={() => setIsMenuOpen(!isMenuOpen)}
-//                 >
-//                     <span className="hamburger-line"></span>
-//                     <span className="hamburger-line"></span>
-//                     <span className="hamburger-line"></span>
-//                 </button>
-//
-//                 {/* Navigation Links */}
-//                 <div className={`navbar-menu ${isMenuOpen ? 'is-open' : ''}`}>
-//                     <Link
-//                         to="/"
-//                         className={`navbar-link ${location.pathname === '/' ? 'active' : ''}`}
-//                     >
-//                         Home
-//                     </Link>
-//                     <Link
-//                         to="/favorites"
-//                         className={`navbar-link ${location.pathname === '/favorites' ? 'active' : ''}`}
-//                     >
-//                         Favorites
-//                     </Link>
-//                 </div>
-//
-//                 {/* Search Bar */}
-//                 <div className="navbar-search">
-//                     <SearchBar onSearch={handleSearch} />
-//                 </div>
-//             </div>
-//         </nav>
-//     );
-// };
-//
-// export default Navbar;
-
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import SearchBar from './SearchBar';
@@ -87,9 +18,9 @@ const Navbar = () => {
     };
 
     const handleHomeClick = () => {
-        setSearchQuery(''); // Réinitialise la recherche
+        setSearchQuery('');
         navigate('/');
-        window.scrollTo(0, 0); // Remonte en haut de la page
+        window.scrollTo(0, 0);
     };
 
     return (
@@ -98,7 +29,7 @@ const Navbar = () => {
                 {/* Logo */}
                 <Link to="/" className="navbar-brand" onClick={handleHomeClick}>
                     <img
-                        src="/pokeball.svg"
+                        src="/pokeball.png"
                         alt="Pokédex"
                         className="navbar-logo"
                     />
@@ -124,12 +55,12 @@ const Navbar = () => {
                     >
                         Home
                     </Link>
-                    <Link
-                        to="/favorites"
-                        className={`navbar-link ${location.pathname === '/favorites' ? 'active' : ''}`}
-                    >
-                        Favorites
-                    </Link>
+                    {/*<Link*/}
+                    {/*    to="/favorites"*/}
+                    {/*    className={`navbar-link ${location.pathname === '/favorites' ? 'active' : ''}`}*/}
+                    {/*>*/}
+                    {/*    Favorites*/}
+                    {/*</Link>*/}
                 </div>
 
                 {/* Search Bar */}

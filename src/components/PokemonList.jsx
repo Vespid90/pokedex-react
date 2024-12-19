@@ -46,18 +46,17 @@ const PokemonList = () => {
         setCurrentPage(1);
     };
 
+    //filtre pokemon
     const getFilteredPokemons = () => {
         return pokemons.filter(pokemon => {
-            // Filtre par recherche
+
             const searchMatch = searchQuery
                 ? pokemon.name.toLowerCase().includes(searchQuery.toLowerCase())
                 : true;
 
-            // Filtre par type
             const typeMatch = filters.type === 'all' ||
                 pokemon.types.some(t => t.type.name === filters.type);
 
-            // Filtre par génération
             let genMatch = true;
             if (filters.generation !== 'all') {
                 const id = pokemon.id;
