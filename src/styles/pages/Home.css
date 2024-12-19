@@ -8,9 +8,9 @@
 
 .favorites-column {
     position: fixed;
-    top: calc(var(--navbar-height, 64px));
+    top: calc(var(--navbar-height, 78px));
     left: 0;
-    height: calc(100vh - var(--navbar-height, 64px));
+    height: calc(100vh - var(--navbar-height, 78px));
     width: 25%;
     background-color: #f8f9fa;
     border-right: 1px solid #ddd;
@@ -22,9 +22,8 @@
 .pokemon-list-column {
     margin-left: 25%;
     width: 75%;
-    padding: 1rem;
     overflow-y: auto;
-    height: calc(100vh - var(--navbar-height, 64px));
+    height: calc(100vh - var(--navbar-height, 78px));
 }
 
 @media (max-width: 768px) {

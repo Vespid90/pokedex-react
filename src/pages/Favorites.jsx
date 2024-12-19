@@ -6,9 +6,10 @@ import '../styles/pages/Favorites.css';
 const Favorites = () => {
     const { favorites, setFavorites } = usePokemon();
 
+    // Fonction pour retirer un favori
     const removeFavorite = (pokemon) => {
         setFavorites((prevFavorites) =>
-            prevFavorites.filter((fav) => fav.id !== pokemon.id)
+            prevFavorites.filter((fav) => fav.id !== pokemon.id) // Retirer l'élément de la liste
         );
     };
 
@@ -25,8 +26,12 @@ const Favorites = () => {
                             >
                                 ❌
                             </button>
-                            <span>#{pokemon.id.toString().padStart(3, '0')} </span>
-                            <span>{pokemon.name}</span>
+                            <span className="favorites-list-id">
+                                #{pokemon.id.toString().padStart(3, '0')}
+                            </span>
+                            <span className="favorites-list-name">
+                                {pokemon.name}
+                            </span>
                             <img
                                 src={pokemon.sprites.front_default}
                                 alt={pokemon.name}
