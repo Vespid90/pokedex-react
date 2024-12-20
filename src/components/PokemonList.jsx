@@ -58,7 +58,7 @@ const PokemonList = () => {
 
     //gestion des favoris
     const handleFavoriteToggle = (pokemon) => {
-        const isFavorite = favorites.some(fav => fav.id === pokemon.id);
+        const isFavorite = favorites.some((fav) => fav.id === pokemon.id);
         if (isFavorite) {
             removeFavorite(pokemon.id);
         } else {

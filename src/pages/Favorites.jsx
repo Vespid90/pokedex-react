@@ -1,17 +1,9 @@
-import React from 'react';
-import { usePokemon } from '../hooks/usePokemon';
-import PokemonCard from '../components/PokemonCard';
+import React, { useContext } from 'react';
+import PokemonContext from '../context/PokemonContext';
 import '../styles/pages/Favorites.css';
 
 const Favorites = () => {
-    const { favorites, setFavorites } = usePokemon();
-
-    // Fonction pour retirer un favori
-    const removeFavorite = (pokemon) => {
-        setFavorites((prevFavorites) =>
-            prevFavorites.filter((fav) => fav.id !== pokemon.id) // Retirer l'élément de la liste
-        );
-    };
+    const { favorites, removeFavorite } = useContext(PokemonContext); // Accès au contexte
 
     return (
         <div>
@@ -20,21 +12,24 @@ const Favorites = () => {
                 <ul className="favorites-list">
                     {favorites.map((pokemon) => (
                         <li key={pokemon.id} className="favorite-item">
+                            {/* Bouton pour supprimer un favori */}
                             <button
                                 className="remove-favorite-button"
-                                onClick={() => removeFavorite(pokemon)}
+                                onClick={() => removeFavorite(pokemon.id)} // Passe l'ID au lieu de l'objet entier
                             >
                                 ❌
                             </button>
+                            {/* ID et Nom */}
                             <span className="favorites-list-id">
                                 #{pokemon.id.toString().padStart(3, '0')}
                             </span>
                             <span className="favorites-list-name">
                                 {pokemon.name}
                             </span>
+                            {/* Sprite */}
                             <img
-                                src={pokemon.sprites.front_default}
-                                alt={pokemon.name}
+                                src={pokemon.sprites?.front_default || 'placeholder-image-url'}
+                                alt={pokemon.name || 'Unknown Pokémon'}
                                 className="favorites-sprites"
                             />
                         </li>

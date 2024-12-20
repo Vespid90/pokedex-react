@@ -27,17 +27,24 @@ export function PokemonProvider({ children }) {
         loadAllPokemons()
     }, [])
 
+    useEffect(() => {
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+        console.log('Updated favorites:', favorites);
+    }, [favorites]);
+
     const addFavorite = (pokemon) => {
-        const newFavorites = [...favorites, pokemon]
-        setFavorites(newFavorites)
-        localStorage.setItem('favorites', JSON.stringify(newFavorites))
-    }
+        setFavorites((prevFavorites) =>
+            prevFavorites.some((fav) => fav.id === pokemon.id)
+                ? prevFavorites
+                : [...prevFavorites, pokemon]
+        );
+    };
 
     const removeFavorite = (pokemonId) => {
-        const newFavorites = favorites.filter(p => p.id !== pokemonId)
-        setFavorites(newFavorites)
-        localStorage.setItem('favorites', JSON.stringify(newFavorites))
-    }
+        setFavorites((prevFavorites) =>
+            prevFavorites.filter((p) => p.id !== pokemonId)
+        );
+    };
 
     return (
         <PokemonContext.Provider value={{
