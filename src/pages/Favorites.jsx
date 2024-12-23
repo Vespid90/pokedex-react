@@ -3,15 +3,7 @@ import PokemonContext from '../context/PokemonContext';
 import '../styles/pages/Favorites.css';
 
 const Favorites = () => {
-    const { favorites, setFavorites } = usePokemon();
-
-    //fonction pour retirer un favori
-    const removeFavorite = (pokemon) => {
-        setFavorites((prevFavorites) =>
-            prevFavorites.filter((fav) => fav.id !== pokemon.id) // Retirer l'élément de la liste
-        );
-    };
-    const { favorites, removeFavorite } = useContext(PokemonContext); // Accès au contexte
+    const { favorites, removeFavorite } = useContext(PokemonContext);
 
     return (
         <div>
