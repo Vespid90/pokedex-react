@@ -6,7 +6,7 @@ import '../styles/pages/Favorites.css';
 const Favorites = () => {
     const { favorites, setFavorites } = usePokemon();
 
-    // Fonction pour retirer un favori
+    //fonction pour retirer un favori
     const removeFavorite = (pokemon) => {
         setFavorites((prevFavorites) =>
             prevFavorites.filter((fav) => fav.id !== pokemon.id) // Retirer l'élément de la liste

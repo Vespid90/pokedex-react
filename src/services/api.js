@@ -1,87 +1,11 @@
-// import axios from 'axios'
-//
-// const API_URL = 'https://pokeapi.co/api/v2'
-//
-// export const getAllPokemons = async () => {
-//     try {
-//         const response = await axios.get(`${API_URL}/pokemon?limit=1010`)
-//         const pokemonData = await Promise.all(
-//             response.data.results.map(async pokemon => {
-//                 const pokemonDetails = await axios.get(pokemon.url)
-//                 const speciesResponse = await axios.get(pokemonDetails.data.species.url)
-//                 const frenchName = speciesResponse.data.names.find(
-//                     name => name.language.name === "fr"
-//                 )?.name || pokemonDetails.data.name
-//
-//                 return {
-//                     id: pokemonDetails.data.id,
-//                     name: frenchName,
-//                     types: pokemonDetails.data.types,
-//                     sprites: pokemonDetails.data.sprites
-//                 }
-//             })
-//         )
-//         return pokemonData
-//     } catch (error) {
-//         console.error('Erreur de recupération des pokemons:', error)
-//         throw error
-//     }
-// }
-//
-// export const getPokemons = async (limit = 60, offset = 0) => {
-//     try {
-//         const response = await axios.get(`${API_URL}/pokemon?limit=${limit}&offset=${offset}`)
-//
-//         const pokemonData = await Promise.all(
-//             response.data.results.map(async pokemon => {
-//
-//                 const pokemonDetails = await axios.get(pokemon.url)
-//
-//                 const speciesResponse = await axios.get(pokemonDetails.data.species.url)
-//                 const frenchName = speciesResponse.data.names.find(
-//                     name => name.language.name === 'fr'
-//                 )?.name || pokemonDetails.data.name
-//
-//                 return {
-//                     ...pokemonDetails.data,
-//                     name: frenchName
-//                 }
-//             })
-//         )
-//         return pokemonData
-//     } catch (error) {
-//         console.error('Erreur sur la récupération des pokémons:', error)
-//         throw error
-//     }
-// }
-//
-// export const getPokemonById = async (id) => {
-//     try {
-//         const response = await axios.get(`${API_URL}/pokemon/${id}`)
-//
-//         const speciesResponse = await axios.get(response.data.species.url)
-//         const frenchName = speciesResponse.data.names.find(
-//             name => name.language.name === 'fr'
-//         )?.name || response.data.name
-//
-//         return {
-//             ...response.data,
-//             name: frenchName
-//         }
-//     } catch (error) {
-//         console.error('Erreur sur la récupération des pokémons:', error)
-//         throw error
-//     }
-// }
-
 import axios from 'axios'
 
 const API_URL = 'https://pokeapi.co/api/v2'
 
-// Créer une instance axios avec un timeout et une retry logic
+//créer une instance axios avec un timeout et une retry logic
 const api = axios.create({
     baseURL: API_URL,
-    timeout: 10000, // 10 secondes
+    timeout: 10000,
 });
 
 export const getAllPokemons = async () => {
@@ -118,7 +42,6 @@ export const getAllPokemons = async () => {
     }
 };
 
-// Fonction pour récupérer les détails d'un Pokémon avec retry
 const fetchPokemonWithRetry = async (url, retries = 3) => {
     for (let i = 0; i < retries; i++) {
         try {
