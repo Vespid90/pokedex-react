@@ -1,6 +1,5 @@
-import React from 'react';
-import { usePokemon } from '../hooks/usePokemon';
-import PokemonCard from '../components/PokemonCard';
+import React, { useContext } from 'react';
+import PokemonContext from '../context/PokemonContext';
 import '../styles/pages/Favorites.css';
 
 const Favorites = () => {
@@ -12,6 +11,7 @@ const Favorites = () => {
             prevFavorites.filter((fav) => fav.id !== pokemon.id) // Retirer l'élément de la liste
         );
     };
+    const { favorites, removeFavorite } = useContext(PokemonContext); // Accès au contexte
 
     return (
         <div>
@@ -22,7 +22,7 @@ const Favorites = () => {
                         <li key={pokemon.id} className="favorite-item">
                             <button
                                 className="remove-favorite-button"
-                                onClick={() => removeFavorite(pokemon)}
+                                onClick={() => removeFavorite(pokemon.id)}
                             >
                                 ❌
                             </button>
@@ -33,8 +33,8 @@ const Favorites = () => {
                                 {pokemon.name}
                             </span>
                             <img
-                                src={pokemon.sprites.front_default}
-                                alt={pokemon.name}
+                                src={pokemon.sprites?.front_default || 'placeholder-image-url'}
+                                alt={pokemon.name || 'Unknown Pokémon'}
                                 className="favorites-sprites"
                             />
                         </li>
