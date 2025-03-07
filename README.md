@@ -1,97 +1,81 @@
-# PokeAPI Collaborative Project
+# Pokédex en React
 
-| Challenge Parameters       | Challenge Details |
-| :------------------------- | :---------------- |
-| Create a public repository | `pokedex-collab`  |
-| Challenge type             | Collaborative     |
-| Duration                   | 5 days            |
-| Team                       | 2                 |
+![Pokédex](./docs/pokedex-banner.png)
 
-### Deployment Options
+## Description
 
--   Netlify
--   Vercel
--   GitHub Pages
--   Render
--   Railway
+Le **Pokédex en React** est une application web interactive permettant aux utilisateurs de consulter des informations détaillées sur les différents Pokémon. L'application exploite l'[API PokéAPI](https://pokeapi.co/) pour récupérer et afficher des données telles que le nom, l'image, le poids, la taille, les capacités et les statistiques de chaque Pokémon.
 
-## Learning Objectives
+## Fonctionnalités
 
--   Develop a React application consuming a public API
--   Practice modern React development techniques
--   Create a responsive and interactive web application
--   Learn state management and component composition
+- **Liste complète des Pokémon** : Affichage de tous les Pokémon avec leurs images miniatures.
+- **Recherche dynamique** : Fonctionnalité de recherche pour trouver un Pokémon spécifique par son nom.
+- **Gestion des favoris pour composer son équipe !
+- **Détails du Pokémon** : En cliquant sur un Pokémon, l'utilisateur accède à une page détaillée présentant :
+  - Nom et image en haute résolution
+  - Taille et poids
+  - Liste des capacités
+  - Statistiques de base
+- **Navigation fluide** : Utilisation de React Router pour une navigation sans rechargement de page.
+- **Design réactif** : Interface adaptée aux différentes tailles d'écran, garantissant une expérience utilisateur optimale sur mobile, tablette et bureau.
 
-## The Mission
+## Déploiement
 
-Welcome to your collaborative React project!
+L'application est déployée et accessible publiquement à l'adresse suivante : [https://pokedex-react-amber-xi.vercel.app](https://pokedex-react-amber-xi.vercel.app)
 
-You will create a comprehensive Pokedex application using the [PokeAPI](https://pokeapi.co/). This project will challenge you to work together, design an intuitive interface, and demonstrate your React skills.
+## Installation
 
-### Project Requirements
+Pour exécuter ce projet en local, suivez les étapes ci-dessous :
 
-#### Core Functionality
+1. **Cloner le dépôt** :
 
--   Fetch and display Pokemon data from PokeAPI
--   Create a comprehensive list view of all Pokemons
--   Implement detailed view for individual Pokemon
--   Add search and filtering capabilities
--   Pages for favorites pokemons ( stored in localstorage)
+   ```bash
+   git clone https://github.com/Vespid90/pokedex-react.git
+   cd pokedex-react
+   ```
 
-#### Technical Specifications
+2. **Installer les dépendances** :
 
-##### Frontend
+   ```bash
+   npm install
+   ```
 
--   React.js (latest stable version)
--   "React Router" or "Tanstack Router" for navigation
--   React Context API for state management
+3. **Lancer l'application** :
 
-##### API Interaction
+   ```bash
+   npm run dev
+   ```
 
--   Use Axios or Fetch for API calls
--   **Implement proper error handling**
--   **Add loading states**
--   Implement pagination or infinite scroll
+   L'application sera accessible à l'adresse `http://localhost:5173`.
 
-### What to Investigate and Implement
+## Technologies utilisées
 
--   Advanced React Hooks (useState, useEffect, useContext, useReducer)
--   Responsive design principles
--   Performance optimization techniques
--   Comprehensive and re-usable error handling
--   Accessibility considerations
--   Meaningful git workflow (feature branches, pull requests)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 
-### Development Workflow
 
-1. **Project Setup**
+- **React** : Bibliothèque JavaScript pour la construction d'interfaces utilisateur.
+- **React Router** : Gestion de la navigation au sein de l'application.
+- **Axios** : Gestion des requêtes HTTP vers l'API PokéAPI.
+- **CSS3** : Stylisation de l'interface utilisateur.
+- **Vite** : Outil de build rapide pour les applications modernes.
 
-    - Create a repo
-    - Set up development environment
-    - Configure **ESLint and Prettier** ( you don't know what ESLint is it's time to check it out)
+## Ressources
 
-2. **Collaborative Development**
-    - Use pair programming techniques
-    - Create a kanban, share tasks and responsibilities
-    - Regular sync-up every morning or evening
+- [Documentation de React](https://fr.reactjs.org/docs/getting-started.html)
+- [Documentation de React Router](https://reactrouter.com/)
+- [Documentation d'Axios](https://axios-http.com/docs/intro)
+- [PokéAPI](https://pokeapi.co/)
 
-### Bonus Challenges & Features
+## Contribution
 
--   Add complex filtering and sorting
--   Create a team builder functionality
--   Add Pokemon comparison tool
--   Create data visualizations of Pokemon stats
--   Implement user authentication
--   Implement unit and integration tests(Jest or React Testing Library)
+Les contributions sont les bienvenues ! Si vous souhaitez proposer des améliorations ou signaler des problèmes, veuillez ouvrir une issue ou soumettre une pull request.
+Merci de créer votre propre branch !
 
-### Submission Requirements
+## Licence
 
-1. GitHub Repository
-    - Clean, organized code
-    - Comprehensive README
-    - Deployment link
-2. Presentation deck
-    - Project overview
-    - Technical challenges
-    - Lessons learned
-3. Live demo of the application
+Ce projet est sous licence MIT. Voir le fichier [LICENSE](./LICENSE) pour plus de détails.
+
